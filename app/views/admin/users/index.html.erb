@@ -1,0 +1,27 @@
+<h1>Admin::Users</h1>
+<%= link_to "Add New User", new_admin_user_path %>
+<table>
+  <tr>
+    <td>UserName</td>
+    <td>Email</td>
+    <td>Status</td>
+    <td>Action</td>
+  </tr>
+  <% if @user.empty? %>
+    <tr><td colspan="4">No Users Found</td></tr>
+  <% else %>
+    <% @user.each do |user| %>
+    <tr>
+      <td> <%= user.user_name %></td>
+      <td> <%= user.email %></td>
+      <td>Status</td>
+      <td>
+        <%= link_to "Show", admin_user_path(user.id) %>
+        <%= link_to "Edit", edit_admin_user_path(user.id) %>
+        <%= link_to "Delete", admin_user_path(user.id), method: :delete,
+                data: {confirm: "Are you sure you want to delete this user "+ user.user_name + "?"} %>
+      </td>
+    </tr>
+    <% end %>
+  <% end %>
+</table>

@@ -1,0 +1,27 @@
+<table>
+  <tr>
+    <td> User Name </td>
+    <td> <%= f.text_field :user_name%></td>
+  </tr>
+  <%  @user.errors.full_messages_for(:user_name).each do |unameErr| %>
+  <tr><td colspan="2"> <%= unameErr %></td></tr>
+  <% end%>
+  <tr>
+    <td> Email </td>
+    <td> <%= f.text_field :email%></td>
+  </tr>
+  <%  @user.errors.full_messages_for(:email).each do |emailErr| %>
+  <tr><td colspan="2"> <%= emailErr %></td></tr>
+  <% end%>
+  <tr>
+    <td> password </td>
+    <td> <%= f.password_field :password%></td>
+  </tr>
+  <%  @user.errors.full_messages_for(:password).each do |pwErr| %>
+  <tr><td colspan="2"> <%= pwErr %></td></tr>
+  <% end%>
+  <tr>
+    <td> </td>
+    <td> <%= f.submit "Submit"%></td>
+  </tr>
+</table>

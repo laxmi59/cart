@@ -1,0 +1,9 @@
+
+<%#= session[:user_id]%>
+<%#= @current_user.id%>
+<% if @current_user && @current_user.id == 1%>
+  <h1>Welcome Admin Portal</h1>
+<% else %>
+  <h1>Welcome Admin Portal</h1>
+  <%= link_to "Login", admin_login_path  %>
+<% end %>

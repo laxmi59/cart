@@ -1,0 +1,24 @@
+<% if @current_user%>
+  Loged in as <%= @current_user.email %>
+  <%= link_to "Logout", admin_logout_path %>
+  <% if @current_user.id == 1 %>
+    <table>
+      <tr>
+      <td><%= link_to "Home", root_path %></td>
+      <td><%= link_to "Users", admin_users_path %></td>
+      <td><%= link_to "Categories" %></td>
+      <td><%= link_to "Products" %></td>
+      </tr>
+    </table>
+  <% else %>
+    <%= link_to "Login" %>
+    <%= link_to "Signup"%>
+    <table>
+      <tr>
+      <td><%= link_to "Home" %></td>
+      <td><%= link_to "Categories" %></td>
+      <td><%= link_to "Products"%></td>
+      </tr>
+    </table>
+  <% end %>
+<% end %>
